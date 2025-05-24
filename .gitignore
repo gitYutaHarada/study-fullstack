@@ -1,0 +1,74 @@
+# ========================
+#  Node / Next.js / React
+# ========================
+# 依存パッケージ
+node_modules/
+
+# Next.js ビルド成果物
+.next/
+out/
+build/
+
+# 環境変数ファイル
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ログ
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# VS Code ワークスペース設定
+.vscode/
+
+# ========================
+#    Java / Spring Boot
+# ========================
+# Maven ビルド成果物
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+dependency-reduced-pom.xml
+release.properties
+
+# Gradle ビルド成果物
+.gradle/
+build/
+
+# IDE 設定あうぇあうぇ
+.settings/
+.classpath
+.project
+.factorypath/
+
+# IntelliJ IDEA 設定
+.idea/
+*.iml
+*.iws
+
+# Spring Boot ログ (もし出力している場合)
+spring.log
+
+# ========================
+#       MySQL (ローカル)
+# ========================
+# ダンプファイルなど
+*.sql
+*.sql.gz
+
+# ========================
+#        OS・共通
+# ========================
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# その他
+*.log
