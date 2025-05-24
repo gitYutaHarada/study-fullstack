@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const LoginForm = () => {
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
-  const [resData, setResData] = useState(null);
+  const [resData, setResData] = useState(false);
+  const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,12 +17,15 @@ const LoginForm = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userId, password }),
       });
-      const data = await res.json();
-      setResData(data);
+      const isLogin = await res.json();
+      if (isLogin.success) {
+        router.push("/menu");
+      }
     } catch (err) {
       console.log(err);
     }
   };
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -44,7 +49,7 @@ const LoginForm = () => {
         </div>
         <input type="submit" value="submit"></input>
       </form>
-      {resData && <p>{resData.userId}</p>}
+      {resData && <p>a</p>}
     </div>
   );
 };

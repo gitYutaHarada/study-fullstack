@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 
-export const POST = async (reaquest) => {
+export const POST = async (request) => {
   try {
-    const { userId, password } = await reaquest.json();
+    const { userId, password } = await request.json();
 
     const apiRes = await fetch("http://localhost:8080/login", {
       method: "POST",
@@ -11,8 +11,13 @@ export const POST = async (reaquest) => {
     });
 
     const data = await apiRes.json();
-    return NextResponse.json(data, { status: apiRes.status });
+    console.log(data);
 
+    if (data) {
+      return NextResponse.json({ success: true });
+    } else {
+      return NextResponse.json({ success: false });
+    }
   } catch (err) {
     console.log(err);
     return NextResponse.json({ error: "サーバーエラー" }, { status: 500 });
