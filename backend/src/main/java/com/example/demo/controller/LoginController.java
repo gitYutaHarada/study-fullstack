@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -17,10 +16,6 @@ public class LoginController {
 
 	private final LoginService service;
 	
-	@GetMapping("/login")
-	public String view() {
-		return "login";
-	}
 	
 	@PostMapping("/login")
 	@ResponseBody
