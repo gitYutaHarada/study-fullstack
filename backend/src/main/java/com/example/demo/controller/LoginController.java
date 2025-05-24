@@ -7,10 +7,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.dto.LoginRequestDto;
+import com.example.demo.service.user.login.LoginService;
+
+import lombok.RequiredArgsConstructor;
 
 @RestController
+@RequiredArgsConstructor
 public class LoginController {
 
+	private final LoginService service;
+	
 	@GetMapping("/login")
 	public String view() {
 		return "login";
