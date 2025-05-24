@@ -24,8 +24,13 @@ public class LoginController {
 	
 	@PostMapping("/login")
 	@ResponseBody
-	public LoginRequestDto login(@RequestBody LoginRequestDto loginRequestDto) {
-		System.out.println(loginRequestDto);
-		return loginRequestDto;
+	public boolean login(@RequestBody LoginRequestDto loginRequestDto) {
+		if(service.isLogin(loginRequestDto.getUserId(), loginRequestDto.getPassword())) {
+			System.out.println("true");
+			return true;
+		} else {
+			System.out.println("false");
+			return false;
+		}
 	}
 }
