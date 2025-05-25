@@ -1,30 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+
+import { useLogin } from "@/hooks/api/useLogin";
 
 const LoginForm = () => {
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
-  const [resData, setResData] = useState(false);
-  const router = useRouter();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await fetch("/api/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ userId, password }),
-      });
-      const isLogin = await res.json();
-      if (isLogin.success) {
-        router.push("/menu");
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  const { isLogin, handleSubmit } = useLogin(userId, password);
 
   return (
     <div>
@@ -49,7 +33,7 @@ const LoginForm = () => {
         </div>
         <input type="submit" value="submit"></input>
       </form>
-      {resData && <p>a</p>}
+      {isLogin && <p>a</p>}
     </div>
   );
 };
