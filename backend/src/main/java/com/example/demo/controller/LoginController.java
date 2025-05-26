@@ -17,7 +17,7 @@ public class LoginController {
 	private final LoginService service;
 	
 	
-	@PostMapping("/login")
+	@PostMapping("/api/login")
 	@ResponseBody
 	public boolean login(@RequestBody LoginRequestDto loginRequestDto) {
 		if(service.isLogin(loginRequestDto.getUserId(), loginRequestDto.getPassword())) {
