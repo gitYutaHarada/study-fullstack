@@ -16,8 +16,11 @@ export const useLogin = (userId, password) => {
         body: JSON.stringify({ userId, password }),
       });
       const response = await res.json();
-      setIsLogin(response);
-      if (response) {
+      console.log("response: " + response.success);
+
+      setIsLogin(response.success);
+      if (response.success) {
+        console.log("aaiiee");
         router.push("/menu");
       }
     } catch (err) {

@@ -4,14 +4,14 @@ export const POST = async (request) => {
   try {
     const { userId, password } = await request.json();
 
-    const apiRes = await fetch("http://localhost:8080/login", {
+    const apiRes = await fetch("http://localhost:8080/api/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ userId, password }),
     });
 
     const data = await apiRes.json();
-    console.log(data);
+    console.log("data : " + data);
 
     if (data) {
       return NextResponse.json({ success: true });
