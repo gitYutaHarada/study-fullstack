@@ -18,17 +18,20 @@ public class LoginServiceImpl implements LoginService {
 	
 	private final PasswordEncoder passwordEncoder;
 	
+	
 	@Override
 	public boolean isLogin(String userName, String password) {
-		System.out.println(passwordEncoder.encode(password));
+
 		for(UserInformationEntity entity : searchUserById(userName)) {
-			if(passwordEncoder.matches(password, entity.getPassword()) && entity.getUserName().equals(userName)) {
+			if(passwordEncoder.matches(password, entity.getPassword()) 
+					&& entity.getUserName().equals(userName)) {
 				return true;
 			}
 		}
 		return false;
 	}
 	
+	@Override
 	public List<UserInformationEntity> searchUserById(String userName) {
 		return repository.findAllByUserName(userName);
 	}
