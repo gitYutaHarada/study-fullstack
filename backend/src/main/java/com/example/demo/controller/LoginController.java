@@ -20,6 +20,7 @@ public class LoginController {
 	@PostMapping("/api/login")
 	@ResponseBody
 	public boolean login(@RequestBody LoginRequestDto loginRequestDto) {
+		
 		if(service.isLogin(loginRequestDto.getUserId(), loginRequestDto.getPassword())) {
 			System.out.println("true");
 			return true;

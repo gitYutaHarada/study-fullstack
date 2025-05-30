@@ -7,7 +7,7 @@ export const useLogin = (userId, password) => {
   const [isLogin, setIsLogin] = useState(false);
   const router = useRouter();
 
-  const handleSubmit = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     try {
       const res = await fetch("/api/login", {
@@ -28,5 +28,5 @@ export const useLogin = (userId, password) => {
     }
   };
 
-  return { isLogin ,handleSubmit};
+  return { isLogin, handleLogin };
 };

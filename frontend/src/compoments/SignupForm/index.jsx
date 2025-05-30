@@ -8,11 +8,11 @@ const SignupForm = () => {
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
 
-  const { isLogin, handleSubmit } = useLogin(userId, password);
+  const { isLogin, handleLogin } = useLogin(userId, password);
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleLogin}>
         <div>
           <label htmlFor="userId">userId</label>
           <input
