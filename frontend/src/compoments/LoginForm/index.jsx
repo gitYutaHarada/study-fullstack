@@ -33,7 +33,6 @@ const LoginForm = () => {
         </div>
         <input type="submit" value="submit"></input>
       </form>
-      {isLogin && <p>a</p>}
     </div>
   );
 };
