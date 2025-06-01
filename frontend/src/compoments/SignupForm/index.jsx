@@ -2,23 +2,24 @@
 
 import { useState } from "react";
 
-import { useLogin } from "@/hooks/api/useLogin";
+import { useSginup } from "@/hooks/api/useSignup";
 
 const SignupForm = () => {
-  const [userId, setUserId] = useState("");
+  const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
-  const { isLogin, handleLogin } = useLogin(userId, password);
+  const { isSginup, handleSginup } = useSginup(userName, password);
 
   return (
     <div>
-      <form onSubmit={handleLogin}>
+      <p>Sign up Form</p>
+      <form onSubmit={handleSginup}>
         <div>
-          <label htmlFor="userId">userId</label>
+          <label htmlFor="userName">userName</label>
           <input
             type="text"
-            id="userId"
-            onChange={(e) => setUserId(e.target.value)}
+            id="userName"
+            onChange={(e) => setUserName(e.target.value)}
             required
           />
         </div>
@@ -33,7 +34,6 @@ const SignupForm = () => {
         </div>
         <input type="submit" value="submit"></input>
       </form>
-      {isLogin && <p>a</p>}
     </div>
   );
 };

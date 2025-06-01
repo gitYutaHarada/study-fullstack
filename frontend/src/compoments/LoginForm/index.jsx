@@ -5,20 +5,20 @@ import { useState } from "react";
 import { useLogin } from "@/hooks/api/useLogin";
 
 const LoginForm = () => {
-  const [userId, setUserId] = useState("");
+  const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
-  const { isLogin, handleLogin } = useLogin(userId, password);
+  const { isLogin, handleLogin } = useLogin(userName, password);
 
   return (
     <div>
       <form onSubmit={handleLogin}>
         <div>
-          <label htmlFor="userId">userId</label>
+          <label htmlFor="userName">userName</label>
           <input
             type="text"
-            id="userId"
-            onChange={(e) => setUserId(e.target.value)}
+            id="userName"
+            onChange={(e) => setUserName(e.target.value)}
             required
           />
         </div>

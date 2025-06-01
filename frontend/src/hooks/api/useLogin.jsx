@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export const useLogin = (userId, password) => {
+export const useLogin = (userName, password) => {
   const [isLogin, setIsLogin] = useState(false);
   const router = useRouter();
 
@@ -13,7 +13,7 @@ export const useLogin = (userId, password) => {
       const res = await fetch("/api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ userId, password }),
+        body: JSON.stringify({ userName, password }),
       });
       const response = await res.json();
       console.log("response: " + response.success);

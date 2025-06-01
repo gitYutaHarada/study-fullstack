@@ -24,7 +24,7 @@ public class LoginController {
 	@ResponseBody
 	public boolean login(@RequestBody LoginRequestDto loginRequestDto) {
 		
-		if(service.isLogin(loginRequestDto.getUserId(), loginRequestDto.getPassword())) {
+		if(service.isLogin(loginRequestDto.getUserName(), loginRequestDto.getPassword())) {
 			System.out.println("true");
 			return true;
 		} else {
