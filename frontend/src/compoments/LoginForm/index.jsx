@@ -18,6 +18,8 @@ const LoginForm = () => {
           <input
             type="text"
             id="userName"
+            minLength={3}
+            maxLength={20}
             onChange={(e) => setUserName(e.target.value)}
             required
           />
@@ -27,6 +29,8 @@ const LoginForm = () => {
           <input
             type="password"
             id="password"
+            minLength={3}
+            maxLength={20}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
