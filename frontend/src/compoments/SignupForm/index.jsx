@@ -5,10 +5,10 @@ import { useState } from "react";
 import { useSginup } from "@/hooks/api/useSignup";
 
 const SignupForm = () => {
-  const [userName, setUserName] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const { isSignup, handleSginup } = useSginup(userName, password);
+  const { isSignup, handleSginup } = useSginup(username, password);
 
   return (
     <div>
@@ -22,13 +22,13 @@ const SignupForm = () => {
       )}
       <form onSubmit={handleSginup}>
         <div>
-          <label htmlFor="userName">userName</label>
+          <label htmlFor="username">username</label>
           <input
             type="text"
-            id="userName"
+            id="username"
             minLength={3}
             maxLength={20}
-            onChange={(e) => setUserName(e.target.value)}
+            onChange={(e) => setUsername(e.target.value)}
             required
           />
         </div>

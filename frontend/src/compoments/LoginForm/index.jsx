@@ -5,22 +5,22 @@ import { useState } from "react";
 import { useLogin } from "@/hooks/api/useLogin";
 
 const LoginForm = () => {
-  const [userName, setUserName] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const { isLogin, handleLogin } = useLogin(userName, password);
+  const { isLogin, handleLogin } = useLogin(username, password);
 
   return (
     <div>
       <form onSubmit={handleLogin}>
         <div>
-          <label htmlFor="userName">userName</label>
+          <label htmlFor="username">username</label>
           <input
             type="text"
-            id="userName"
+            id="username"
             minLength={3}
             maxLength={20}
-            onChange={(e) => setUserName(e.target.value)}
+            onChange={(e) => setUsername(e.target.value)}
             required
           />
         </div>

@@ -2,12 +2,12 @@ import { NextResponse } from "next/server";
 
 export const POST = async (request) => {
   try {
-    const { userName, password } = await request.json();
+    const { username, password } = await request.json();
 
     const apiRes = await fetch("http://localhost:8080/api/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ userName, password }),
+      body: JSON.stringify({ username, password }),
     });
 
     const resData = await apiRes.json();
