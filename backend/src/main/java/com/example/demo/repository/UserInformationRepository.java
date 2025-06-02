@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.example.demo.entity.UserInformationEntity;
 
 @Repository
-public interface UserInformationRepository extends JpaRepository<UserInformationEntity, Integer> {
+public interface UserInformationRepository extends JpaRepository<UserInformationEntity, String> {
 
     List<UserInformationEntity> findAllByUserName(String userName);
 

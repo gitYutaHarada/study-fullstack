@@ -13,9 +13,6 @@ import lombok.Data;
 public class UserInformationEntity {
 
 	@Id
-	@Column(name="user_id")
-	private int userId;
-	
 	@Column(name="user_name")
 	private String userName;
 	

@@ -20,6 +20,12 @@ public class SignupServiceImpl implements SignupService{
 
 	@Override
 	public boolean resistUserInformation(SignupDto signupDto) {
+		//元々userNameがあるかチェック。存在したらfalse返す
+		var existingUserName = repository.findById(signupDto.getUserName());
+		if(existingUserName.isPresent()) {
+			return false;
+		}
+		
 		//EntityにDtoをセット
 		SetUserInformation setUserInformation = new SetUserInformation();
 		UserInformationEntity userInformationEntity = setUserInformation.setUserInformationFromSignup(signupDto);
@@ -30,11 +36,10 @@ public class SignupServiceImpl implements SignupService{
 		//Entityをデータベースにinsert
 		UserInformationEntity saved = repository.save(userInformationEntity);
 		
-		if( saved != null) {
-			return true;
-		} else {
-			return false;
-		}
+		if(saved == null) return false;
+		
+		return true;
+	
 	}
 
 	
