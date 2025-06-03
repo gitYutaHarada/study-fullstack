@@ -16,7 +16,7 @@ public class LoginServiceImpl implements LoginService {
 
 	private final UserInformationRepository repository;
 	
-	private final PasswordEncoder passwordEncoder;
+	private final PasswordEncoder passwordEncoder ;
 	
 	
 	@Override

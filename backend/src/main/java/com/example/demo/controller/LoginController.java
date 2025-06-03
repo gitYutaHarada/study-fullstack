@@ -16,20 +16,17 @@ import lombok.RequiredArgsConstructor;
 public class LoginController {
 
 	private final LoginService service;
-	
+
 	private final MessageSource messageSource;
-	
-	
+
 	@PostMapping("/api/login")
 	@ResponseBody
 	public boolean login(@RequestBody LoginRequestDto loginRequestDto) {
-		
-		if(service.isLogin(loginRequestDto.getUserName(), loginRequestDto.getPassword())) {
-			System.out.println("true");
+
+		if (service.isLogin(loginRequestDto.getUserName(), loginRequestDto.getPassword())) {
 			return true;
-		} else {
-			System.out.println("false");
-			return false;
 		}
+		return false;
+
 	}
 }
